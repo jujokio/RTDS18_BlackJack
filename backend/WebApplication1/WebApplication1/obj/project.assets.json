@@ -9514,11 +9514,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jussi\\Documents\\jussinkoulustuff\\RTDS\\backend\\RTDS18_BlackJack\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\Jussi\\Documents\\jussinkoulustuff\\RTDS\\RTDS18_BlackJack\\backend\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\Jussi\\Documents\\jussinkoulustuff\\RTDS\\backend\\RTDS18_BlackJack\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\Jussi\\Documents\\jussinkoulustuff\\RTDS\\RTDS18_BlackJack\\backend\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\Jussi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jussi\\Documents\\jussinkoulustuff\\RTDS\\backend\\RTDS18_BlackJack\\WebApplication1\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\Jussi\\Documents\\jussinkoulustuff\\RTDS\\RTDS18_BlackJack\\backend\\WebApplication1\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
