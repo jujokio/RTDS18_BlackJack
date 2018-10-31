@@ -23,14 +23,14 @@ namespace WebApplication1.ApiModels
 
         public List<PlayerApiModel> getPlayers()
         {
-            throw new NotImplementedException();
+            return players;
         }
 
 
         public List<HandApiModel> getPlayerHands()
         {
             List<HandApiModel> playerHands = new List<HandApiModel>();
-            foreach (PlayerApiModel p in this.players)
+            foreach (PlayerApiModel p in players)
             {
                 HandApiModel h = p.PlayerHand;
                 playerHands.Add(h);
@@ -81,7 +81,7 @@ namespace WebApplication1.ApiModels
             foreach (PlayerApiModel player in players)
             {
                 player.CurrentlyPlaying = true;
-
+                SendMessageToPlayer("Your turn.", player);
 
             }
 
@@ -195,12 +195,9 @@ namespace WebApplication1.ApiModels
 
         }
 
-
-
-
-
-
-
-
+        private void SendMessageToPlayer(string message, PlayerApiModel player)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
