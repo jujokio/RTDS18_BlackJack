@@ -23,6 +23,10 @@ function sendHitRequest() {
 function sendStandRequest() {
 
 }
+
+function joinGame() {
+    console.log("Joining game!");
+}
 //getting card from available deck that is stored in the server
 function httpGetCard(theUrl)
 {
