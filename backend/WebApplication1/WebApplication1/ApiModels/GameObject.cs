@@ -59,6 +59,7 @@ namespace WebApplication1.ApiModels
 
         public void main()
         {
+            waitForPlayers();
             playdeck.Restart();
             System.Diagnostics.Debug.Write(this.playdeck.DeckToString());
 
@@ -81,7 +82,10 @@ namespace WebApplication1.ApiModels
             foreach (PlayerApiModel player in players)
             {
                 player.CurrentlyPlaying = true;
-                SendMessageToPlayer("Your turn.", player);
+                GameMessageApiModel ykok = new GameMessageApiModel(player);
+                ykok.Message = "Your turn.";
+                ykok.Status = 200;
+                SendMessageToPlayer(ykok, player);
 
             }
 
@@ -195,9 +199,9 @@ namespace WebApplication1.ApiModels
 
         }
 
-        private void SendMessageToPlayer(string message, PlayerApiModel player)
+        private void SendMessageToPlayer(GameMessageApiModel message, PlayerApiModel player)
         {
-            throw new NotImplementedException();
+            int result = player.SendMessageAsync(message);
         }
     }
 }

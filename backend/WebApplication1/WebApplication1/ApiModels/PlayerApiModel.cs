@@ -27,10 +27,12 @@ namespace WebApplication1.ApiModels
            }
         }
 
-        public async Task<int> SendMessageAsync(string message, int statuscode)
+        public int SendMessageAsync(GameMessageApiModel message)
         {
             int result = -1;
+            //HttpContent payload = message;
 
+            //HttpResponseMessage response = await Client.PostAsync(this.Ip, );
             
             return result;
         }
