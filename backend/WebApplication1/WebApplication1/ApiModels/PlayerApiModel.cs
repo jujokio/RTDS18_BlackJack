@@ -10,14 +10,23 @@ namespace WebApplication1.ApiModels
 {
     public class PlayerApiModel
     {
-        public int PlayerId { get; set; }
+
+        public Guid PlayerId { get; set; }
         public int Funds { get; set; }
         public string PlayerName { get; set; }
-        public Boolean CurrentlyPlaying { get; set; }
+        public bool CurrentlyPlaying { get; set; }
+        public bool QuitGame { get; set; }
         public HandApiModel PlayerHand { get; set; }
         private string Ip { get; set; }
         private HttpClient Client { get; set; }
 
+        public PlayerApiModel()
+        {
+            this.QuitGame = false;
+            this.CurrentlyPlaying = false;
+            this.Funds = -1;
+            this.PlayerId = Guid.NewGuid();
+        }
 
         public void giveCards(List<CardApiModel> cardList)
         {

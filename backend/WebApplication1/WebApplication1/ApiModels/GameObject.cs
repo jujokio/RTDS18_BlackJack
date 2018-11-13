@@ -21,8 +21,18 @@ namespace WebApplication1.ApiModels
             throw new NotImplementedException();
         }
 
-        public List<PlayerApiModel> getPlayers()
+        public List<PlayerApiModel> getPlayers(bool addDealer = false)
         {
+            if (addDealer)
+            {
+                List<PlayerApiModel> temp = new List<PlayerApiModel>();
+                temp.Add(dealer);
+                foreach (PlayerApiModel p in players)
+                {
+                    temp.Add(p);
+                }
+                return temp;
+            }
             return players;
         }
 
@@ -55,6 +65,16 @@ namespace WebApplication1.ApiModels
         {
             List<CardApiModel> c = playdeck.Draw(numberOfCards);
             player.giveCards(c);
+            
+        }
+
+        private bool ScorePlayerHand(PlayerApiModel player)
+        {
+            if (player.PlayerHand.TotalValue < 21)
+            {
+                return false;
+            }
+            return true;
         }
 
         public void main()
@@ -81,13 +101,40 @@ namespace WebApplication1.ApiModels
             // players turn
             foreach (PlayerApiModel player in players)
             {
-                player.CurrentlyPlaying = true;
-                GameMessageApiModel ykok = new GameMessageApiModel(player);
-                ykok.Message = "Your turn.";
-                ykok.Status = 200;
-                SendMessageToPlayer(ykok, player);
+                if (player.PlayerHand.Hand.Count >= 2)
+                {
+                    player.CurrentlyPlaying = true;
+                    GameMessageApiModel ykok = new GameMessageApiModel(player);
+                    ykok.Message = "Your turn.";
+                    ykok.Status = 200;
+                    playerChoise = SendMessageToPlayer(ykok, player);
+                    while (player.CurrentlyPlaying && !player.QuitGame)
+                    {
+                        // player play
+                        System.Diagnostics.Debug.Write("player playing");
 
+                        player.CurrentlyPlaying = false;
+                    }
+                }// not enough cards
+            }// one player
+            // dealer's turn
+            while (dealer.PlayerHand.TotalValue < 17)
+            {
+                dealCards(dealer, 1);
             }
+            GameMessageApiModel endgame = new GameMessageApiModel
+            {
+                Message = "Game ended",
+                PlayerList = getPlayers(true),
+                HandList = getFinalHands(),
+                Status = 200
+            };
+
+            foreach (PlayerApiModel plr in players)
+            {
+                SendMessageToPlayer(endgame,plr);
+            }
+        
 
 
 
