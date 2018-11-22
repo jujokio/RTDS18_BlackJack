@@ -332,3 +332,7 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# NuGet Packages
+/packages/
+!packages/repositories.config
