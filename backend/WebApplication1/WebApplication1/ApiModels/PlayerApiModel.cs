@@ -19,6 +19,7 @@ namespace WebApplication1.ApiModels
         public HandApiModel PlayerHand { get; set; }
         private string Ip { get; set; }
         private HttpClient Client { get; set; }
+        public bool Busted { get; set; }
 
         public PlayerApiModel()
         {
@@ -49,6 +50,6 @@ namespace WebApplication1.ApiModels
 
     public class DealerApiModel: PlayerApiModel
     {
-        
+
     }
 }

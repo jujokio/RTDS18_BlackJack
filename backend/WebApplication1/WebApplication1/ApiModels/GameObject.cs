@@ -79,15 +79,15 @@ namespace WebApplication1.ApiModels
 
         public void main()
         {
+            Playing = false;
             waitForPlayers();
             playdeck.Restart();
             System.Diagnostics.Debug.Write(this.playdeck.DeckToString());
-
-
         }
 
         public void runGame()
         {
+            Playing = true;
             //init the single players command
             int playerChoise = -1;
             // give dealer 2 cards
@@ -108,20 +108,54 @@ namespace WebApplication1.ApiModels
                     ykok.Message = "Your turn.";
                     ykok.Status = 200;
                     playerChoise = SendMessageToPlayer(ykok, player);
-                    while (player.CurrentlyPlaying && !player.QuitGame)
+                    while (player.CurrentlyPlaying && !player.QuitGame && ScorePlayerHand(player))
                     {
+                        GameMessageApiModel status = new GameMessageApiModel(player)
+                        {
+                            Message = "Your turn.",
+                            HandList = getFinalHands(),
+                            Status = 200,
+                        };
+
+                        playerChoise = SendMessageToPlayer(status, player);
                         // player play
                         System.Diagnostics.Debug.Write("player playing");
+                        switch (playerChoise) {
+                            case 0: // hit 
+                                dealCards(player, 1);
+                                if (ScorePlayerHand(player)) // busted
+                                {
+                                    player.Busted = true;
+                                    player.CurrentlyPlaying = false;
+                                }
+                                break;
+                            case 1: // stand
+                                player.CurrentlyPlaying = false;
+                                break;
 
-                        player.CurrentlyPlaying = false;
+                            default: // timeout or quit
+                                player.CurrentlyPlaying = false;
+                                player.QuitGame = true;
+                                break;
+                        }
+                        if (ScorePlayerHand(player)) // busted
+                        {
+                            player.Busted = true;
+                            player.CurrentlyPlaying = false;
+                        }
                     }
                 }// not enough cards
-            }// one player
+            }// one player's turn
             // dealer's turn
             while (dealer.PlayerHand.TotalValue < 17)
             {
                 dealCards(dealer, 1);
+                if (ScorePlayerHand(dealer)) // busted
+                {
+                    dealer.Busted = true;
+                }
             }
+            // send end game results
             GameMessageApiModel endgame = new GameMessageApiModel
             {
                 Message = "Game ended",
@@ -134,6 +168,8 @@ namespace WebApplication1.ApiModels
             {
                 SendMessageToPlayer(endgame,plr);
             }
+            // start to wait a new game
+            Playing = false;
         
 
 
@@ -246,9 +282,10 @@ namespace WebApplication1.ApiModels
 
         }
 
-        private void SendMessageToPlayer(GameMessageApiModel message, PlayerApiModel player)
+        private int SendMessageToPlayer(GameMessageApiModel message, PlayerApiModel player)
         {
             int result = player.SendMessageAsync(message);
+            return result;
         }
     }
 }
