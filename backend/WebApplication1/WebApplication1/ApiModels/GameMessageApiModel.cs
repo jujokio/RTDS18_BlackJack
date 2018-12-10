@@ -19,9 +19,12 @@ namespace WebApplication1.ApiModels
 
         public GameMessageApiModel(PlayerApiModel player)
         {
-            this.PlayerId = player.PlayerId.ToString();
-            this.PlayerList.Add(player);
-            this.HandList.Add(player.PlayerHand);
+            PlayerList = new List<PlayerApiModel>();
+            HandList = new List<HandApiModel>();
+
+            PlayerId = player.PlayerId.ToString();
+            PlayerList.Add(player);
+            HandList.Add(player.PlayerHand);
         }
 
         public GameMessageApiModel()

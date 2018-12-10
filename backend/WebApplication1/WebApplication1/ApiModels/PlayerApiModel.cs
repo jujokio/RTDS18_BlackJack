@@ -27,6 +27,17 @@ namespace WebApplication1.ApiModels
             this.CurrentlyPlaying = false;
             this.Funds = -1;
             this.PlayerId = Guid.NewGuid();
+            PlayerHand = new HandApiModel();
+        }
+
+        public PlayerApiModel(String name)
+        {
+            this.QuitGame = false;
+            this.CurrentlyPlaying = false;
+            this.Funds = -1;
+            this.PlayerId = Guid.NewGuid();
+            PlayerHand = new HandApiModel();
+            this.PlayerName = name;
         }
 
         public void giveCards(List<CardApiModel> cardList)
@@ -39,7 +50,7 @@ namespace WebApplication1.ApiModels
 
         public int SendMessageAsync(GameMessageApiModel message)
         {
-            int result = -1;
+            int result = 1;
             //HttpContent payload = message;
 
             //HttpResponseMessage response = await Client.PostAsync(this.Ip, );

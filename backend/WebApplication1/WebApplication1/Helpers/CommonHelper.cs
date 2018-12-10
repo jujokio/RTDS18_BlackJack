@@ -13,7 +13,7 @@ namespace Helpers
         {
             int rand = 0;
             Random random = new Random();
-            int randomNumber = random.Next(low, high);
+            rand = random.Next(low, high);
             return rand;
         }
     }

@@ -18,7 +18,9 @@ namespace WebApplication1.ApiModels
 
         public void waitForPlayers()
         {
-            throw new NotImplementedException();
+            PlayerApiModel p = new PlayerApiModel("tester");
+            players.Add(p);
+            //throw new NotImplementedException();
         }
 
         public List<PlayerApiModel> getPlayers(bool addDealer = false)
@@ -82,20 +84,26 @@ namespace WebApplication1.ApiModels
             Playing = false;
             waitForPlayers();
             playdeck.Restart();
-            System.Diagnostics.Debug.Write(this.playdeck.DeckToString());
+            System.Diagnostics.Debug.WriteLine(this.playdeck.DeckToString());
         }
 
         public void runGame()
         {
+            System.Diagnostics.Debug.WriteLine("start game");
             Playing = true;
             //init the single players command
             int playerChoise = -1;
             // give dealer 2 cards
             dealCards(dealer, 2);
             // deal cards to everyone
-            foreach(PlayerApiModel player in players)
+            System.Diagnostics.Debug.WriteLine("dealer's hand");
+            System.Diagnostics.Debug.WriteLine(dealer.PlayerHand.HandToDisplay());
+
+            foreach (PlayerApiModel player in players)
             {
                 dealCards(player, 2);
+                System.Diagnostics.Debug.WriteLine("hand of "+ player.PlayerName);
+                System.Diagnostics.Debug.WriteLine(player.PlayerHand.HandToDisplay());
             }
 
             // players turn
@@ -119,7 +127,7 @@ namespace WebApplication1.ApiModels
 
                         playerChoise = SendMessageToPlayer(status, player);
                         // player play
-                        System.Diagnostics.Debug.Write("player playing");
+                        System.Diagnostics.Debug.WriteLine("player playing");
                         switch (playerChoise) {
                             case 0: // hit 
                                 dealCards(player, 1);

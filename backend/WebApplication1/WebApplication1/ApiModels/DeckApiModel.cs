@@ -19,7 +19,7 @@ namespace WebApplication1.ApiModels
             List<CardApiModel> Drawed = new List<CardApiModel>();
             for (int i=0;i<numberOfDraws;i++)
             {
-                int index = CommonHelper.GetRandom(1, 52);
+                int index = CommonHelper.GetRandom(1, Deck.Count);
                 CardApiModel draw = this.Deck.ElementAt(index);
                 this.UsedCards.Add(draw);
                 this.Deck.RemoveAt(index);
@@ -89,12 +89,17 @@ namespace WebApplication1.ApiModels
 
         public string DeckToString()
         {
-            return this.Deck.ToString();
+            string temp ="";
+            foreach (CardApiModel c in Deck)
+            {
+                temp += c.ToDisplay() + ", ";
+            }
+            return temp;
         }
 
         public string UsedCardsToString()
         {
-            return this.UsedCards.ToString();
+            return UsedCards.ToString();
         }
     }
 }
