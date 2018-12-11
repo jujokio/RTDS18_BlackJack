@@ -28,14 +28,22 @@ namespace WebApplication1
 
             if(Program.listOfGames == null)
             {
-                GameObject go = new GameObject();
-                GameObject.joinGame(playername);
+                Program.listOfGames.Add(new GameObject());
             }
-            else
+            foreach(GameObject game in Program.listOfGames)
             {
-                GameObject.joinGame(playername);
+                try
+                {
+                    game.JoinGame(playername);
+                }
+                catch (Exception e)
+                {
+                    continue;
+                }
             }
-
+           
+            
+        
         }
 
         public override void OnMessage(string message)
