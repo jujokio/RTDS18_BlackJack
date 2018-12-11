@@ -19,8 +19,8 @@
             <div id="dhand"></div>
           </div>
           <!-- <div style="height: 200px; z-index: 1; padding-top: 330px;"> -->
-              
-                <img class="playeronecard" src="cards/back.png" onload="this.onload=null; this.src=getCardImg();" />
+                <!-- shows the card image in rightplace -->
+                <img id ="playercard"src="cards/back.png" onload="this.onload=null; this.src=getCardImg(); this.class=getPlayerNumber();" />
               </div>
               <div class="col2"></div>
               <div class="col2"></div>
@@ -37,11 +37,12 @@
           <div style="text-align: center">
             <button class="button_hit" onclick="sendHitRequest()">Hit!</button>
             <button class="button_stand" onclick="sendHitRequest()">Stand!</button>
-            <img id="playercard"class="getPlayerNumber();" src="cards/back.png" onload="this.onload=null; this.src=getCardImg();" />
           </div>
         <div style="text-align: right">
             <button class="button_join" onclick="joinGame()">Join Game! </button>
+            <button class="button_quit" onclick="quitGame()">Quit Game! </button>
         </div>
+
          
           <!-- <strong>Wager:</strong> $<input id="wager" class="input-small" type="text" /> -->
         </div>

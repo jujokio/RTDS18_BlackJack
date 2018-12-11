@@ -35,6 +35,19 @@ h3 {
     margin: 4px 2px;
     cursor: pointer;
 }
+.button_quit {
+    background-color: rgb(233, 68, 62);
+    border: none;
+	color: white;
+	
+    padding: 15px 32px;
+    text-align: right;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
     
 .button_hit {
@@ -263,7 +276,55 @@ input#wager { margin-left: 5px; position: relative; top: 4px }
 	left: 190px;
 	top: 422px;
 	height: 75px;
-	
 	z-index: 200;
+  }
+  .playertwocard {
+	position: absolute;
+	visibility: visible;
+   left: 400px;
+   top: 455px;
+   height: 75px;
+   z-index: 200;
+  }
 
+  .playerthreecard {
+	position: absolute;
+	visibility: visible;
+	left: 645px;
+    top: 441px;
+   height: 75px;
+   z-index: 200;
+  }
+  .dealercard {
+	position: absolute;
+	visibility: visible;
+	left: 450px;
+    top: 70px;
+   height: 75px;
+   z-index: 200;
+  }
+
+  .playeronetotalvalue{
+	position: absolute;
+	visibility: visible;
+	left: 190px;
+	top: 422px;
+	height: 75px;
+	z-index: 200;
+  }
+  .playertwototalvalue{
+	position: absolute;
+	visibility: visible;
+	left: 190px;
+	top: 422px;
+	height: 75px;
+	z-index: 200;
+  }
+  .playerthreetotalvalue{
+	position: absolute;
+	visibility: visible;
+	left: 190px;
+	top: 422px;
+	z-index: 200;
+	size: 50px;
   }
