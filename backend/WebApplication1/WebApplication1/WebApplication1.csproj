@@ -24,6 +24,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
+    <PackageReference Include="Microsoft.WebSockets" Version="0.2.3.1" />
     <PackageReference Include="SocketIoClientDotNet" Version="1.0.7.1" />
   </ItemGroup>
 
