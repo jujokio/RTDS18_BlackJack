@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("api/chat/{PlayerId}")]
+        [HttpGet("{PlayerId}")]
         public ActionResult<List<ChatApiModel>> Get(Guid PlayerId)
         {
             List<ChatApiModel> playerMessages = new List<ChatApiModel>();
@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
         }
 
         // POST api/playerGuid
-        [HttpPost("api/chat/{playerId}")]
+        [HttpPost("{playerId}")]
         public void Post(Guid playerId, [FromBody] string value)
         {
             ChatApiModel cam = new ChatApiModel(playerId, value);
