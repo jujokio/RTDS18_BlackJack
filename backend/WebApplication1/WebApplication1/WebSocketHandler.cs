@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime;
 using System.Threading.Tasks;
 using Microsoft.Web.WebSockets;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +24,19 @@ namespace WebApplication1
             // Check if running game exist
             // Join existing game or init new game
 
-    }
+            string playername = "user1234";
+
+            if(Program.listOfGames == null)
+            {
+                GameObject go = new GameObject();
+                GameObject.joinGame(playername);
+            }
+            else
+            {
+                GameObject.joinGame(playername);
+            }
+
+        }
 
         public override void OnMessage(string message)
         {
