@@ -33,5 +33,11 @@ namespace WebApplication1.ApiModels
             temp += "{ total value: " + TotalValue + " }";
             return temp;
         }
+
+        internal void Discard()
+        {
+            Hand = new List<CardApiModel>();
+            TotalValue = 0;
+        }
     }
 }

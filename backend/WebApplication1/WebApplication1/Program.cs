@@ -18,7 +18,7 @@ namespace WebApplication1
 
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            //CreateWebHostBuilder(args).Build().Run();
 
             int i = 0;
             GameObject go = new GameObject();

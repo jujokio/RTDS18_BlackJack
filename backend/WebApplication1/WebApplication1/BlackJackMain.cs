@@ -12,11 +12,11 @@ namespace WebApplication1
     {
         public static void Main(string[] args)
         {
-            
+
             System.Diagnostics.Debug.Print("blacjack start-tooo");
             GameObject go = new GameObject();
 
-            CreateWebHostBuilder(args).Build().Run();
+            //CreateWebHostBuilder(args).Build().Run();
             // here one can do threads??
             go.main();
             go.runGame();

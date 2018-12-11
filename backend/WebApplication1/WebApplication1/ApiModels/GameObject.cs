@@ -205,6 +205,7 @@ namespace WebApplication1.ApiModels
             }
             // start to wait a new game
             Playing = false;
+            ResetPlayerHands();
         
 
 
@@ -315,6 +316,15 @@ namespace WebApplication1.ApiModels
 
 
 
+        }
+
+        private void ResetPlayerHands()
+        {
+            foreach (PlayerApiModel p in players)
+            {
+                p.PlayerHand.Discard();
+            }
+            dealer.PlayerHand.Discard();
         }
 
         private int SendMessageToPlayer(GameMessageApiModel message, PlayerApiModel player)
