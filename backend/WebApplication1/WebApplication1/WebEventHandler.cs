@@ -15,7 +15,7 @@ namespace WebApplication1
             if (context.IsWebSocketRequest)
             {
                 context.AcceptWebSocketRequest(new
-                    SimpleEventingWebSocketHandler());
+                    WebSocketHandler());
             }
         }
 
