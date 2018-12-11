@@ -14,12 +14,14 @@ namespace WebApplication1
     public class Program
     {
         public static List<ChatApiModel> Chat = new List<ChatApiModel>();
+        public static List<GameObject> listOfGames = new List<GameObject>();
 
         public static void Main(string[] args)
         {
 
             int i = 0;
             GameObject go = new GameObject();
+            listOfGames.Add(go);
             while (i<=3){
                 System.Diagnostics.Debug.WriteLine("start new game");
                 go.main();
