@@ -10,18 +10,18 @@ namespace WebApplication1
 {
     public class ServerEventHandler : WebSocketHandler
     {
+        [HttpGet]
+        public ActionResult<List<GameObject>> Get()
+        {
+            return Program.listOfGames;
+        }
+
         public override void OnOpen()
         {
             base.Send("You connected to a WebSocket!");
 
             // Check if running game exist
             // Join existing game or init new game
-
-            [HttpGet]
-            public ActionResult<List<GameObject>> Get()
-            {
-                return Program.listOfGames;
-            }
 
     }
 
