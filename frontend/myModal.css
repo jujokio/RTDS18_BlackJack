@@ -257,3 +257,13 @@ input#wager { margin-left: 5px; position: relative; top: 4px }
   .form-container .btn:hover, .open-button:hover {
 	opacity: 1;
   }
+  .playeronecard{
+	position: absolute;
+	 visibility: visible;
+	left: 165px;
+	top: 422px;
+	height: 100px;
+	width: 150px;
+	z-index: 200;
+
+  }

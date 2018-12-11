@@ -18,9 +18,16 @@
           <div id="dealer">
             <div id="dhand"></div>
           </div>
+          <!-- <div style="height: 200px; z-index: 1; padding-top: 330px;"> -->
+              
+                <img class="playeronecard" src="cards/back.png" onload="this.onload=null; this.src=getCardImg();" />
+              </div>
+              <div class="col2"></div>
+              <div class="col2"></div>
+          </div>
           <div id="player">
             <div id="phand"></div>
-          </div>
+          <!-- </div> -->
           <!-- <div id="money">
             <span id="cash">Cash: $<span></span></span>
             <div id="bank">Winnings: $<span></span></div>
@@ -30,6 +37,7 @@
           <div style="text-align: center">
             <button class="button_hit" onclick="sendHitRequest()">Hit!</button>
             <button class="button_stand" onclick="sendHitRequest()">Stand!</button>
+            <img id="playercard"class="getPlayerNumber();" src="cards/back.png" onload="this.onload=null; this.src=getCardImg();" />
           </div>
         <div style="text-align: right">
             <button class="button_join" onclick="joinGame()">Join Game! </button>

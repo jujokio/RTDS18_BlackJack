@@ -9508,23 +9508,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jussi\\.nuget\\packages\\": {},
+    "C:\\Users\\Markus\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jussi\\Documents\\jussinkoulustuff\\RTDS\\RTDS18_BlackJack\\backend\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\Markus\\Documents\\RTDS2018\\RTDS18_BlackJack\\backend\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\Jussi\\Documents\\jussinkoulustuff\\RTDS\\RTDS18_BlackJack\\backend\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
-      "packagesPath": "C:\\Users\\Jussi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jussi\\Documents\\jussinkoulustuff\\RTDS\\RTDS18_BlackJack\\backend\\WebApplication1\\WebApplication1\\obj\\",
+      "projectPath": "C:\\Users\\Markus\\Documents\\RTDS2018\\RTDS18_BlackJack\\backend\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "packagesPath": "C:\\Users\\Markus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Markus\\Documents\\RTDS2018\\RTDS18_BlackJack\\backend\\WebApplication1\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jussi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Markus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
