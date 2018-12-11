@@ -25,7 +25,12 @@ namespace WebApplication1.ApiModels
             players.Add(p2);
             players.Add(p3);
 
-            //throw new NotImplementedException();
+        }
+
+        public void JoinGame(string playername)
+        {
+            PlayerApiModel p = new PlayerApiModel(playername);
+            players.Add(p);
         }
 
         public List<PlayerApiModel> getPlayers(bool addDealer = false)
