@@ -28,4 +28,8 @@
     <PackageReference Include="SocketIoClientDotNet" Version="1.0.7.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
 </Project>
