@@ -18,14 +18,28 @@ namespace WebApplication1.ApiModels
 
         public void waitForPlayers()
         {
-            PlayerApiModel p1 = new PlayerApiModel("tester1");
-            PlayerApiModel p2 = new PlayerApiModel("tester2");
-            PlayerApiModel p3 = new PlayerApiModel("tester3");
-            players.Add(p1);
-            players.Add(p2);
-            players.Add(p3);
+            if (players.Count == 1)
+            {
+                System.Threading.Thread.Sleep(10);
+                waitForPlayers();
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Number of players: " + players.Count);
+            }
+            //PlayerApiModel p1 = new PlayerApiModel("tester1");
+            //PlayerApiModel p2 = new PlayerApiModel("tester2");
+            //PlayerApiModel p3 = new PlayerApiModel("tester3");
+            //players.Add(p1);
+            //players.Add(p2);
+            //players.Add(p3);
 
-            //throw new NotImplementedException();
+        }
+
+        public void JoinGame(string playername)
+        {
+            PlayerApiModel p = new PlayerApiModel(playername);
+            players.Add(p);
         }
 
         public List<PlayerApiModel> getPlayers(bool addDealer = false)

@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{PlayerId}")]
+        [HttpGet("api/chat/{PlayerId}")]
         public ActionResult<List<ChatApiModel>> Get(Guid PlayerId)
         {
             List<ChatApiModel> playerMessages = new List<ChatApiModel>();
@@ -34,23 +34,12 @@ namespace WebApplication1.Controllers
         }
 
         // POST api/playerGuid
-        [HttpPost("{playerId}")]
+        [HttpPost("api/chat/{playerId}")]
         public void Post(Guid playerId, [FromBody] string value)
         {
             ChatApiModel cam = new ChatApiModel(playerId, value);
             Program.Chat.Add(cam);
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

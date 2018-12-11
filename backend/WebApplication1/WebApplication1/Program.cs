@@ -18,6 +18,7 @@ namespace WebApplication1
 
         public static void Main(string[] args)
         {
+            CreateWebHostBuilder(args).Build().Run();
 
             int i = 0;
             GameObject go = new GameObject();
@@ -30,7 +31,7 @@ namespace WebApplication1
             }
             System.Diagnostics.Debug.WriteLine("ended");
 
-            CreateWebHostBuilder(args).Build().Run();
+            
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
