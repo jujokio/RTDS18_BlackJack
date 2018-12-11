@@ -77,11 +77,13 @@ namespace WebApplication1.ApiModels
 
         private bool ScorePlayerHand(PlayerApiModel player)
         {
-            if (player.PlayerHand.TotalValue < 21)
+            if (player.PlayerHand.TotalValue <= 21)
             {
-                return false;
+                return true;
             }
-            return true;
+            //busted
+            System.Diagnostics.Debug.WriteLine(player.PlayerName + "busted with total value of "+player.PlayerHand.TotalValue);
+            return false;
         }
 
         public void main()
@@ -132,11 +134,11 @@ namespace WebApplication1.ApiModels
 
                         playerChoise = SendMessageToPlayer(status, player);
                         // player play
-                        System.Diagnostics.Debug.WriteLine("player playing");
+                        System.Diagnostics.Debug.WriteLine(player.PlayerName + " playing");
                         switch (playerChoise) {
                             case 0: // hit 
                                 dealCards(player, 1);
-                                if (ScorePlayerHand(player)) // busted
+                                if (!ScorePlayerHand(player)) // busted
                                 {
                                     player.Busted = true;
                                     player.CurrentlyPlaying = false;
@@ -151,7 +153,7 @@ namespace WebApplication1.ApiModels
                                 player.QuitGame = true;
                                 break;
                         }
-                        if (ScorePlayerHand(player)) // busted
+                        if (!ScorePlayerHand(player)) // busted
                         {
                             player.Busted = true;
                             player.CurrentlyPlaying = false;
@@ -163,7 +165,7 @@ namespace WebApplication1.ApiModels
             while (dealer.PlayerHand.TotalValue < 17)
             {
                 dealCards(dealer, 1);
-                if (ScorePlayerHand(dealer)) // busted
+                if (!ScorePlayerHand(dealer)) // busted
                 {
                     dealer.Busted = true;
                 }
@@ -176,7 +178,7 @@ namespace WebApplication1.ApiModels
                 HandList = getFinalHands(),
                 Status = 200
             };
-
+            
             foreach (PlayerApiModel plr in players)
             {
                 SendMessageToPlayer(endgame,plr);
@@ -297,6 +299,7 @@ namespace WebApplication1.ApiModels
 
         private int SendMessageToPlayer(GameMessageApiModel message, PlayerApiModel player)
         {
+            System.Diagnostics.Debug.WriteLine(message.ToDisplay());
             int result = player.SendMessageAsync(message);
             return result;
         }

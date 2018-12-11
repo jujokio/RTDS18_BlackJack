@@ -30,5 +30,20 @@ namespace WebApplication1.ApiModels
         public GameMessageApiModel()
         {
         }
+
+        internal string ToDisplay()
+        {
+            string result = "";
+            result += "playerId: "+ PlayerId + ", status: "+Status+  "\r\n";
+            result += "Message: " + Message+ "\r\n";
+
+            foreach (PlayerApiModel p in PlayerList)
+            {
+                result += p.PlayerName + ": " + p.PlayerHand.HandToDisplay()+ "\r\n";
+            }
+
+
+            return result;
+        }
     }
 }
