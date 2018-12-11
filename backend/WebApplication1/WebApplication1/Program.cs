@@ -13,12 +13,22 @@ namespace WebApplication1
 {
     public class Program
     {
+        public static List<ChatApiModel> Chat = new List<ChatApiModel>();
+
         public static void Main(string[] args)
         {
+
+            int i = 0;
             GameObject go = new GameObject();
-            go.main();
-            go.runGame();
-            //CreateWebHostBuilder(args).Build().Run();
+            while (i<=3){
+                System.Diagnostics.Debug.WriteLine("start new game");
+                go.main();
+                go.runGame();
+                i++;
+            }
+            System.Diagnostics.Debug.WriteLine("ended");
+
+            CreateWebHostBuilder(args).Build().Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

@@ -11,7 +11,7 @@ namespace WebApplication1.ApiModels
     public class GameMessageApiModel //: HttpContent
     {
 
-        public string PlayerId { get; set; }
+        public Guid PlayerId { get; set; }
         public int Status { get; set; }
         public string Message { get; set; }
         public List<PlayerApiModel> PlayerList { get; set; }
@@ -22,13 +22,16 @@ namespace WebApplication1.ApiModels
             PlayerList = new List<PlayerApiModel>();
             HandList = new List<HandApiModel>();
 
-            PlayerId = player.PlayerId.ToString();
+            PlayerId = player.PlayerId;
             PlayerList.Add(player);
             HandList.Add(player.PlayerHand);
         }
 
         public GameMessageApiModel()
         {
+            PlayerList = new List<PlayerApiModel>();
+            HandList = new List<HandApiModel>();
+
         }
 
         internal string ToDisplay()

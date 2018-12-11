@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.ApiModels;
 
 namespace WebApplication1.Controllers
 {
@@ -12,22 +13,32 @@ namespace WebApplication1.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<List<ChatApiModel>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Program.Chat;
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{PlayerId}")]
+        public ActionResult<List<ChatApiModel>> Get(Guid PlayerId)
         {
-            return "value";
+            List<ChatApiModel> playerMessages = new List<ChatApiModel>();
+            foreach(ChatApiModel message in Program.Chat)
+            {
+                if(message.PlayerId == PlayerId)
+                {
+                    playerMessages.Add(message);
+                }
+            }
+            return playerMessages;
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // POST api/playerGuid
+        [HttpPost("{playerId}")]
+        public void Post(Guid playerId, [FromBody] string value)
         {
+            ChatApiModel cam = new ChatApiModel(playerId, value);
+            Program.Chat.Add(cam);
         }
 
         // PUT api/values/5
