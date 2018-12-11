@@ -260,10 +260,10 @@ input#wager { margin-left: 5px; position: relative; top: 4px }
   .playeronecard{
 	position: absolute;
 	 visibility: visible;
-	left: 165px;
+	left: 190px;
 	top: 422px;
-	height: 100px;
-	width: 150px;
+	height: 75px;
+	
 	z-index: 200;
 
   }
