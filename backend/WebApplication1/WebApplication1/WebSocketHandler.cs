@@ -38,6 +38,7 @@ namespace WebApplication1
                 }
                 catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("not able to join, " + e.ToString());
                     continue;
                 }
             }
