@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public ActionResult<List<ChatApiModel>> Get()
         {
-            return Program.Chat;
+            return BlackJackMain.Chat;
         }
 
         // GET api/values/5
@@ -23,7 +23,7 @@ namespace WebApplication1.Controllers
         public ActionResult<List<ChatApiModel>> Get(Guid PlayerId)
         {
             List<ChatApiModel> playerMessages = new List<ChatApiModel>();
-            foreach(ChatApiModel message in Program.Chat)
+            foreach(ChatApiModel message in BlackJackMain.Chat)
             {
                 if(message.PlayerId == PlayerId)
                 {
@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
         public void Post(Guid playerId, [FromBody] string value)
         {
             ChatApiModel cam = new ChatApiModel(playerId, value);
-            Program.Chat.Add(cam);
+            BlackJackMain.Chat.Add(cam);
         }
 
     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Web.WebSockets;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.ApiModels;
+using WebApplication1.Controllers;
 
 namespace WebApplication1
 {
@@ -14,7 +15,7 @@ namespace WebApplication1
         [HttpGet]
         public ActionResult<List<GameObject>> Get()
         {
-            return Program.listOfGames;
+            return BlackJackMain.listOfGames;
         }
 
         public override void OnOpen()
@@ -26,11 +27,11 @@ namespace WebApplication1
 
             string playername = "user1234";
 
-            if(Program.listOfGames == null)
+            if(BlackJackMain.listOfGames == null)
             {
-                Program.listOfGames.Add(new GameObject());
+                BlackJackMain.listOfGames.Add(new GameObject());
             }
-            foreach(GameObject game in Program.listOfGames)
+            foreach(GameObject game in BlackJackMain.listOfGames)
             {
                 try
                 {

@@ -14,6 +14,7 @@ namespace WebApplication1.ApiModels
         private List<PlayerApiModel> players = new List<PlayerApiModel>();
         private DealerApiModel dealer = new DealerApiModel();
         public bool Playing { get; set; }
+        public Guid GameGuid = new Guid();
 
 
         public void waitForPlayers()
