@@ -7,6 +7,7 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
+<<<<<<< HEAD
   <ItemGroup>
     <None Include="wwwroot\app.js" />
     <None Include="wwwroot\blackjack.py" />
@@ -73,6 +74,8 @@
     <None Include="wwwroot\WebSocket.js" />
   </ItemGroup>
 
+=======
+>>>>>>> 05ccd7a806297ceaf3d7a0ac024c64770e721aa2
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.2.0" />

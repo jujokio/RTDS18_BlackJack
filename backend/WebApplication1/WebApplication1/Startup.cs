@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WebApplication1.ApiModels;
+using WebApplication1.Controllers;
 
 namespace WebApplication1
 {
@@ -41,9 +42,11 @@ namespace WebApplication1
             {
                 app.UseHsts();
             }
-
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseMvc();
+            //BlackJackMain bj = new BlackJackMain();
         }
     }
 }
