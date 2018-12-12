@@ -16,9 +16,9 @@
         var connection;
 
         var host =
-            "ws://localhost/WebEventHandler/WebEventHandler.ashx";
+            "ws://localhost:5001/WebEventHandler/WebEventHandler.ashx";
         //var host =
-        "ws://localhost/WebEventHandler/WebEventHandler.svc";
+        "ws://localhost:5001/WebEventHandler/WebEventHandler.svc";
 
         connection = new WebSocket(host);
 
