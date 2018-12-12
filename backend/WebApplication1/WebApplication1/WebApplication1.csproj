@@ -8,7 +8,69 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <None Include="wwwroot\app.js" />
+    <None Include="wwwroot\blackjack.py" />
+    <None Include="wwwroot\cards\.DS_Store" />
+    <None Include="wwwroot\cards\back.png" />
+    <None Include="wwwroot\cards\c10.png" />
+    <None Include="wwwroot\cards\c2.png" />
+    <None Include="wwwroot\cards\c3.png" />
+    <None Include="wwwroot\cards\c4.png" />
+    <None Include="wwwroot\cards\c5.png" />
+    <None Include="wwwroot\cards\c6.png" />
+    <None Include="wwwroot\cards\c7.png" />
+    <None Include="wwwroot\cards\c8.png" />
+    <None Include="wwwroot\cards\c9.png" />
+    <None Include="wwwroot\cards\ca.png" />
+    <None Include="wwwroot\cards\cj.png" />
+    <None Include="wwwroot\cards\ck.png" />
+    <None Include="wwwroot\cards\cq.png" />
+    <None Include="wwwroot\cards\d10.png" />
+    <None Include="wwwroot\cards\d2.png" />
+    <None Include="wwwroot\cards\d3.png" />
+    <None Include="wwwroot\cards\d4.png" />
+    <None Include="wwwroot\cards\d5.png" />
+    <None Include="wwwroot\cards\d6.png" />
+    <None Include="wwwroot\cards\d7.png" />
+    <None Include="wwwroot\cards\d8.png" />
+    <None Include="wwwroot\cards\d9.png" />
+    <None Include="wwwroot\cards\da.png" />
+    <None Include="wwwroot\cards\dj.png" />
+    <None Include="wwwroot\cards\dk.png" />
+    <None Include="wwwroot\cards\dq.png" />
+    <None Include="wwwroot\cards\h10.png" />
+    <None Include="wwwroot\cards\h2.png" />
+    <None Include="wwwroot\cards\h3.png" />
+    <None Include="wwwroot\cards\h4.png" />
+    <None Include="wwwroot\cards\h5.png" />
+    <None Include="wwwroot\cards\h6.png" />
+    <None Include="wwwroot\cards\h7.png" />
+    <None Include="wwwroot\cards\h8.png" />
+    <None Include="wwwroot\cards\h9.png" />
+    <None Include="wwwroot\cards\ha.png" />
+    <None Include="wwwroot\cards\hj.png" />
+    <None Include="wwwroot\cards\hk.png" />
+    <None Include="wwwroot\cards\hq.png" />
+    <None Include="wwwroot\cards\rename.py" />
+    <None Include="wwwroot\cards\rename.py~" />
+    <None Include="wwwroot\cards\s10.png" />
+    <None Include="wwwroot\cards\s2.png" />
+    <None Include="wwwroot\cards\s3.png" />
+    <None Include="wwwroot\cards\s4.png" />
+    <None Include="wwwroot\cards\s5.png" />
+    <None Include="wwwroot\cards\s6.png" />
+    <None Include="wwwroot\cards\s7.png" />
+    <None Include="wwwroot\cards\s8.png" />
+    <None Include="wwwroot\cards\s9.png" />
+    <None Include="wwwroot\cards\sa.png" />
+    <None Include="wwwroot\cards\sj.png" />
+    <None Include="wwwroot\cards\sk.png" />
+    <None Include="wwwroot\cards\sq.png" />
+    <None Include="wwwroot\cards\Thumbs.db" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\main.html" />
+    <None Include="wwwroot\myModal.css" />
+    <None Include="wwwroot\WebSocket.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +92,10 @@
 
   <ItemGroup>
     <Reference Include="System.Web" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Sites\" />
   </ItemGroup>
 
 </Project>
