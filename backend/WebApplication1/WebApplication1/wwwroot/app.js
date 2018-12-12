@@ -146,7 +146,7 @@ function getPlayerNumber() {
     
     
     
-<<<<<<< HEAD
+
 };
 
 //init
@@ -163,9 +163,8 @@ $(function () {
     join.send();
     console.log(join.responseText);
 });
-=======
-}
->>>>>>> f641d39191c67654551f45dfff908408b23e4190
+
+
 
 
 
