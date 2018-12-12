@@ -69,7 +69,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost("{playername}")]
-        public ActionResult<List<PlayerApiModel>> Join(string playername)
+        public ActionResult<PlayerApiModel> Join(string playername)
         {
             if (listOfGames == null || listOfGames.Count == 0)
             {
@@ -79,8 +79,8 @@ namespace WebApplication1.Controllers
             {
                 try
                 {
-                    game.JoinGame(playername);
-                    return game.getPlayers();
+                    Guid playerGuid = game.JoinGame(playername);
+                    return game.getSinglePlayer(playerGuid);
                 }
                 catch (Exception e)
                 {
