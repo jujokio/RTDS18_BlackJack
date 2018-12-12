@@ -1,4 +1,6 @@
 
+
+var playername = "Guest";
 //openform and closeform are for chat
 function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -160,14 +162,15 @@ function getPlayerNumber() {
 //init
 $(function () {
     // your code goes here
+    
     console.log("Joining game!");
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("Get", "https://localhost:5001/blackjack", false); // false for synchronous request
     xmlHttp.send();
     console.log(xmlHttp.responseText);
     var join = new XMLHttpRequest();
-    join.open("POST", "https://localhost:5001/blackjack", true); // false for synchronous request
-    join.send("name1");
+    join.open("POST", "https://localhost:5001/blackjack/"+playername, true); // false for synchronous request
+    join.send();
     console.log(join.responseText);
 });
 

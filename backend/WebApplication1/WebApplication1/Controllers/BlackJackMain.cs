@@ -16,7 +16,7 @@ namespace WebApplication1.Controllers
         public static List<ChatApiModel> Chat = new List<ChatApiModel>();
         public static List<GameObject> listOfGames = new List<GameObject>();
 
-        public static void Main(string[] args)
+        public static void AddGame()
         {
 
             
@@ -44,24 +44,49 @@ namespace WebApplication1.Controllers
             return listOfGames;
         }
 
-        [HttpPost("{playername}")]
-        public ActionResult<GameObject> Join(string playername)
+        // GET api/values
+        [HttpGet("{playername}")]
+        public ActionResult<List<PlayerApiModel>> Get(string playername)
         {
             if (listOfGames == null || listOfGames.Count == 0)
             {
-                listOfGames.Add(new GameObject());
+                AddGame();
+                foreach (GameObject game in listOfGames)
+                {
+                    try
+                    {
+                        game.JoinGame(playername);
+                    }
+                    catch (Exception e)
+                    {
+                        System.Diagnostics.Debug.WriteLine("not able to join, " + e.ToString());
+                        continue;
+                    }
+                }
+            }
+            List<PlayerApiModel> plaers = listOfGames[0].getPlayers();
+            return plaers;
+        }
+
+        [HttpPost("{playername}")]
+        public ActionResult<List<PlayerApiModel>> Join(string playername)
+        {
+            if (listOfGames == null || listOfGames.Count == 0)
+            {
+                AddGame();
             }
             foreach (GameObject game in listOfGames)
             {
                 try
                 {
                     game.JoinGame(playername);
-                    return game;
+                    return game.getPlayers();
                 }
                 catch (Exception e)
                 {
                     System.Diagnostics.Debug.WriteLine("not able to join, " + e.ToString());
-                    continue;
+                    AddGame();
+                    Join(playername);
                 }
             }
             return null;

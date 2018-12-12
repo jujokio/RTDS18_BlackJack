@@ -39,7 +39,7 @@ namespace WebApplication1.ApiModels
 
         public void JoinGame(string playername)
         {
-            if (players.Count > 3)
+            if (players.Count < 3)
             {
                 PlayerApiModel p = new PlayerApiModel(playername);
                 players.Add(p);
