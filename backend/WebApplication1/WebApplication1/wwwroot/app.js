@@ -1,6 +1,7 @@
 
 
 var playername = "Guest";
+var player = {};
 //openform and closeform are for chat
 function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -159,9 +160,11 @@ $(function () {
     xmlHttp.send();
     console.log(xmlHttp.responseText);
     var join = new XMLHttpRequest();
-    join.open("POST", "https://localhost:5001/blackjack/"+playername, true); // false for synchronous request
+    join.open("POST", "https://localhost:5001/blackjack/"+playername, false); // false for synchronous request
     join.send();
     console.log(join.responseText);
+    player = join.response;
+    console.log(player);
 });
 
 

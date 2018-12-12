@@ -37,18 +37,31 @@ namespace WebApplication1.ApiModels
 
         }
 
-        public void JoinGame(string playername)
+        public Guid JoinGame(string playername)
         {
             if (players.Count < 3)
             {
                 PlayerApiModel p = new PlayerApiModel(playername);
                 players.Add(p);
+                return p.PlayerId;
             }else
             {
                 throw new Exception("Too many men!");
             }
         }
 
+        public PlayerApiModel getSinglePlayer(Guid playerGuid)
+        {
+
+            foreach (PlayerApiModel p in players)
+            {
+                if(p.PlayerId == playerGuid)
+                {
+                    return p;
+                }
+            }
+            return null;
+        }
         public List<PlayerApiModel> getPlayers(bool addDealer = false)
         {
             if (addDealer)
