@@ -1,4 +1,6 @@
 
+
+var playername = "Guest";
 //openform and closeform are for chat
 function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -26,20 +28,10 @@ function sendStandRequest() {
 
 function joinGame() {
     console.log("Joining game!");
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("Get", "https://localhost:5001/blackjack", false); // false for synchronous request
-    xmlHttp.send();
-    console.log(xmlHttp.responseText);
-    var join = new XMLHttpRequest();
-    join.open("post", "https://localhost:5001/blackjack", false); // false for synchronous request
-    join.send({ "playername": "name1" });
-    console.log(join.responseText);
-};
-
+}
 function quitGame() {
-    console.log("Quit Game!")
-};
-
+    console.log("Quite Game!")
+}
 //getting card from available deck that is stored in the server
 function httpGetCard(theUrl)
 {
@@ -47,7 +39,7 @@ function httpGetCard(theUrl)
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
     return xmlHttp.responseText;
-};
+}
 
 function getCardImg (name) {
    
@@ -65,8 +57,7 @@ function getCardImg (name) {
 
         return url;
     }
-};
-
+}
 function getPlayerNumber() {
 
     PlayerId = 0;
@@ -155,21 +146,26 @@ function getPlayerNumber() {
     
     
     
+<<<<<<< HEAD
 };
 
 //init
 $(function () {
     // your code goes here
+    
     console.log("Joining game!");
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("Get", "https://localhost:5001/blackjack", false); // false for synchronous request
     xmlHttp.send();
     console.log(xmlHttp.responseText);
     var join = new XMLHttpRequest();
-    join.open("POST", "https://localhost:5001/blackjack", true); // false for synchronous request
-    join.send("name1");
+    join.open("POST", "https://localhost:5001/blackjack/"+playername, true); // false for synchronous request
+    join.send();
     console.log(join.responseText);
 });
+=======
+}
+>>>>>>> f641d39191c67654551f45dfff908408b23e4190
 
 
 
